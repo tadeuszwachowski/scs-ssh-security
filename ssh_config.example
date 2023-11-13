@@ -1,0 +1,14 @@
+Protocol 2
+
+Host *
+  HostKeyAlgorithms rsa-sha2-512,rsa-sha2-256,ssh-ed25519
+  KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256,diffie-hellman-g>
+  Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-c>
+  MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com
+
+Host example.com
+  HostName 172.17.0.1
+  Port 20022 # if custom port is used and not the default 22
+  User example
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_rsa_example
